@@ -1,4 +1,5 @@
 .idea
 target
 mdd-core
+mdd-dao
 *.iml

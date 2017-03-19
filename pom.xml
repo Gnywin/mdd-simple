@@ -10,6 +10,7 @@
     <modules>
         <module>mdd-web</module>
         <module>mdd-core</module>
+        <module>mdd-dao</module>
     </modules>
     <!--
         <modules>
