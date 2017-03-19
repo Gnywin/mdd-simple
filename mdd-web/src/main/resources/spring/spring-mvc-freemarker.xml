@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+      
+    <!--FreeMarker views -->
+	<bean id="freemarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/view/" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+				<prop key="default_encoding">UTF-8</prop>
+				<prop key="number_format">0.######</prop>
+				<!--  prop key="auto_import">/common/zhd.ftl as zhd,/common/auth.ftl as auth</prop-->
+				<prop key="template_update_delay">0</prop>
+				<prop key="template_exception_handler">ignore</prop>
+				<prop key="classic_compatible">true</prop> 
+			</props>
+		</property>
+		<property name="freemarkerVariables">
+			<map>
+				<entry key="globalPath" value="${freemarker.globalPath}" />
+			</map>
+		</property>
+	</bean>
+	
+	<!-- Simple ViewResolver for FreeMarker, appending ".ftl" to logical view names. -->
+	<bean id="freemarkViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true" />
+		<!-- spring对宏的支持 -->
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<!-- spring 将session暴露出来 -->
+		<property name="exposeSessionAttributes" value="true" />
+		<property name="exposeRequestAttributes" value="true" />
+		<property name="requestContextAttribute" value="rc" />
+		<property name="suffix" value=".ftl" />
+		<property name="contentType" value="text/html; charset=UTF-8" />
+	</bean>
+</beans>

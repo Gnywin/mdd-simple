@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+    
+    <!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入-->
+
+	<context:property-placeholder location="classpath:properties/config.properties" />
+
+	<!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入-->
+	<context:component-scan base-package="mdd.me">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>
+	
+	<!--  http接口转换器，默认gson-->
+	<bean id="gsonMessageConverter"
+		class="org.springframework.http.converter.json.GsonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>application/json;charset=UTF-8</value>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="byteArrayHttpMessageConverter"
+		class="org.springframework.http.converter.ByteArrayHttpMessageConverter"></bean>
+	<bean name="resourceHttpMessageConverter"
+		class="org.springframework.http.converter.ResourceHttpMessageConverter"></bean>
+	<bean name="jaxb2RootElementHttpMessageConverter"
+		class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"></bean>
+	<context:annotation-config />
+
+
+
+	<mvc:annotation-driven validator="validator">
+		<mvc:message-converters>
+			<ref bean="gsonMessageConverter" />
+			<ref bean="byteArrayHttpMessageConverter" />
+			<ref bean="resourceHttpMessageConverter" />
+			<ref bean="jaxb2RootElementHttpMessageConverter" />
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+	
+	<bean id="messageSource" name="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>message/message_sms</value>
+				<value>org/hibernate/validator/ValidationMessages</value>
+			</list>
+		</property>
+		<property name="useCodeAsDefaultMessage" value="false" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="cacheSeconds" value="60" />
+	</bean>
+	
+	<!-- 当在web.xml 中 DispatcherServlet使用 <url-pattern>/</url-pattern> 映射时，能映射静态资源 -->
+	<!--<mvc:default-servlet-handler />-->
+	<!-- 静态资源映射 -->
+	<mvc:resources mapping="/static/**" location="/static/" />
+	
+	<!-- view处理 -->
+	<import resource="classpath:spring/spring-mvc-freemarker.xml" />
+
+	<!-- 控制器异常处理 -->
+	<bean id="exceptionHandlerExceptionResolver"
+		class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">
+	</bean>
+	
+	 <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/static/**"/>
+            <!--<mvc:exclude-mapping path="/html/**"/>-->
+            <mvc:exclude-mapping path="/sys/**"/>
+            <mvc:exclude-mapping path="/sms/**"/>
+            <mvc:exclude-mapping path="/dict/**"/>
+			<mvc:exclude-mapping path="/shop/**"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+	<!-- spring全局上下文对象 -->
+	<bean id="springContextUtil" class="mdd.me.utils.SpringContextUtil"
+		scope="singleton" />
+</beans>
