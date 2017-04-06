@@ -8,16 +8,13 @@
     <artifactId>mdd</artifactId>
     <version>1.0.0-Beta</version>
     <modules>
-        <module>mdd-web</module>
         <module>mdd-core</module>
+        <module>mdd-domain</module>
         <module>mdd-dao</module>
+        <module>mdd-web</module>
+        <module>mdd-service</module>
     </modules>
-    <!--
-        <modules>
-            <module>campus-web</module>
-            <module>campus-api</module>
-            <module>campus-core</module>
-        </modules>-->
+
     <packaging>pom</packaging>
 
     <name>mdd</name>
@@ -38,7 +35,7 @@
         <repository>
             <id>cloudhopper</id>
             <name>Repository for Cloudhopper</name>
-            <url>http://maven.cloudhopper.com/repos/third-party/</url>
+            <url>http://repo1.maven.org/maven2/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -47,32 +44,16 @@
             </snapshots>
         </repository>
     </repositories>
-    <!--
-        <repositories>
-            <repository>
-                <id>local-repo</id>
-                <name>Internal Repository</name>
-                <url>http://172.16.1.9:8081/nexus/content/groups/public</url>
-            </repository>
-        </repositories>
-        <distributionManagement>
-            <snapshotRepository>
-                <id>snapshots</id>
-                <name>Bms-base Project Snapshot</name>
-                <url>http://172.16.1.9:8081/nexus/content/repositories/snapshots/</url>
-                <uniqueVersion>true</uniqueVersion>
-            </snapshotRepository>
-            <repository>
-                <id>releases</id>
-                <name>Bms-base Project Release</name>
-                <url>http://172.16.1.9:8081/nexus/content/repositories/releases/</url>
-            </repository>
-        </distributionManagement>
-    -->
+
 
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.18</version>
+            </dependency>
             <!-- springframe start -->
             <dependency>
                 <groupId>org.springframework</groupId>

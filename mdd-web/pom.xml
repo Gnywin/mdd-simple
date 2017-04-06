@@ -8,10 +8,29 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mdd-web</artifactId>
     <packaging>war</packaging>
-    <name>mdd-web Maven Webapp</name>
+    <name>mdd-web</name>
     <url>http://maven.apache.org</url>
     <dependencies>
-
+        <dependency>
+            <groupId>mdd.me</groupId>
+            <artifactId>mdd-dao</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mdd.me</groupId>
+            <artifactId>mdd-domain</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mdd.me</groupId>
+            <artifactId>mdd-core</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mdd.me</groupId>
+            <artifactId>mdd-service</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -72,7 +91,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.29</version>
+            <version>5.1.18</version>
         </dependency>
 
         <dependency>

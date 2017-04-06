@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>mdd</artifactId>
+        <groupId>mdd.me</groupId>
+        <version>1.0.0-Beta</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>mdd-domain</artifactId>
+    <packaging>jar</packaging>
+    <name>mdd-domain</name>
+    <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>mdd.me</groupId>
+            <artifactId>mdd-core</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+    </dependencies>
+</project>
