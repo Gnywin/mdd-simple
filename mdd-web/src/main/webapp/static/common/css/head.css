@@ -1,0 +1,36 @@
+@font-face {font-family:z-hei; src: url("../../font/z-hei.ttf")}
+nav{
+    height: 60px;
+    /*background: #ccc;*/
+    box-shadow: 1px 1px 6px 1px #CCC;
+}
+nav a{
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    margin: 05px 10px 0px 10px;
+    color: #000;
+    text-decoration:none;
+}
+nav a:visited {
+    font-size: 12px;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+nav .title{
+    font-family: z-hei;
+    font-size: 20px;
+}
+nav .logo{
+    width: 70px;
+    margin: -5px 10px 5px 10px;
+}
+nav .login{
+    float: right;
+}
+nav .register{
+    float: right;
+}

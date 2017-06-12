@@ -23,7 +23,7 @@
 		</property>
 		<property name="freemarkerVariables">
 			<map>
-				<entry key="globalPath" value="${freemarker.globalPath}" />
+				<entry key="host" value="${freemarker.host}" />
 			</map>
 		</property>
 	</bean>

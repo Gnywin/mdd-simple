@@ -53,9 +53,6 @@
 			<ref bean="resourceHttpMessageConverter" />
 			<ref bean="jaxb2RootElementHttpMessageConverter" />
 		</mvc:message-converters>
-		<mvc:argument-resolvers>
-			<bean class="mdd.me.service.resolver.MddArgumentResolver"/>
-		</mvc:argument-resolvers>
 	</mvc:annotation-driven>
 
 	<bean id="validator"
@@ -81,8 +78,7 @@
 	<!--<mvc:default-servlet-handler />-->
 	<!-- 静态资源映射 -->
 	<mvc:resources mapping="/static/**" location="/static/" />
-
-
+	
 	<!-- view处理 -->
 	<import resource="classpath:spring/spring-mvc-freemarker.xml" />
 
@@ -93,29 +89,35 @@
 	<bean id="mddHandlerExceptionResolver"
 		  class="mdd.me.service.resolver.MddHandlerExceptionResolver">
 	</bean>
+	
 	 <mvc:interceptors>
 		 <mvc:interceptor>
 			 <mvc:mapping path="/**"/>
 			 <mvc:exclude-mapping path="/static/**"/>
+			 <!--<mvc:exclude-mapping path="/html/**"/>-->
+			 <mvc:exclude-mapping path="/sys/**"/>
+			 <mvc:exclude-mapping path="/sms/**"/>
+			 <mvc:exclude-mapping path="/dict/**"/>
+			 <mvc:exclude-mapping path="/shop/**"/>
 			 <bean class="mdd.me.service.intercept.TokenHandlerInterceptor">
-			 </bean>
-		 </mvc:interceptor>
-		 <mvc:interceptor>
-			 <mvc:mapping path="/**"/>
-			 <mvc:exclude-mapping path="/static/**"/>
-			 <bean class="mdd.me.service.intercept.FlowHandlerInterceptor">
 			 </bean>
 		 </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/static/**"/>
+            <!--<mvc:exclude-mapping path="/html/**"/>-->
+            <mvc:exclude-mapping path="/sys/**"/>
+            <mvc:exclude-mapping path="/sms/**"/>
+            <mvc:exclude-mapping path="/dict/**"/>
+			<mvc:exclude-mapping path="/shop/**"/>
 			<bean class="mdd.me.service.intercept.BasicAuthHandlerInterceptor">
 				<property name="excludeMapping">
 					<map>
-						<entry key="/token/get" value="GET"/>
-						<entry key="/user/login" value="GET,POST"/>
+						<entry key="/user/login" value="POST"/>
 						<entry key="/user/userExist" value="GET,POST"/>
-						<entry key="/user/register" value="GET,POST"/>
+						<entry key="/user/register" value="POST"/>
+						<entry key="/user/loginBySmsCode" value="POST"/>
+						<entry key="/user/registerSmsCode" value="POST"/>
 					</map>
 				</property>
 			</bean>

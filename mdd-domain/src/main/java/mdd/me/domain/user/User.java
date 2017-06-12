@@ -1,4 +1,4 @@
-package mdd.me.user;
+package mdd.me.domain.user;
 
 import java.util.Date;
 

@@ -13,6 +13,7 @@
         <module>mdd-dao</module>
         <module>mdd-web</module>
         <module>mdd-service</module>
+        <module>mdd-fs</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -22,7 +23,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.0.9.RELEASE</spring.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
         <aspectjweaver.version>1.7.4</aspectjweaver.version>
         <shiro.version>1.2.2</shiro.version>
         <junit.version>4.10</junit.version>
@@ -35,7 +36,7 @@
         <repository>
             <id>cloudhopper</id>
             <name>Repository for Cloudhopper</name>
-            <url>http://repo1.maven.org/maven2/</url>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -147,32 +148,6 @@
                 <version>1.0.6.RELEASE</version>
             </dependency>
 
-            <!-- shiro -->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-core</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-web</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-ehcache</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-quartz</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.apache.thrift</groupId>

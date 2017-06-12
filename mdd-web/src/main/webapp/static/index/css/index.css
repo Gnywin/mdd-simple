@@ -1,0 +1,50 @@
+@-webkit-keyframes logo-out {
+    0% {
+        opacity:0.9;
+    }
+    100% {
+        opacity:0.4;
+    }
+}
+@keyframes logo-out {
+    0% {
+        opacity:0.9;
+    }
+    100% {
+        opacity:0.4;
+    }
+}
+.container{
+    width: 800px;
+    height: 1000px;
+    margin: -30px auto;
+}
+.container .big-logo{
+    background: url("../../img/hafl-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:300px,146px;
+    z-index: 2000;
+    width: 300px;
+    height: 146px;
+    margin: -60px auto;
+    display: block;
+    animation-name:logo-out;
+    animation-duration: 2s;
+    animation-fill-mode:forwards;
+    -moz-animation-name:logo-out;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+    -moz-animation-duration: 2s;/*动画持续时间*/
+    -moz-animation-fill-mode:forwards;
+
+}
+.container .danmaku{
+    width: 100%;
+    height: 400px;
+    background: #1c1c1c;
+    margin-top: 60px;
+
+}
+.container .danmaku p{
+    color: #fff;
+}
+

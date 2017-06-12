@@ -1,0 +1,26 @@
+.http .modal-content{
+    width: 400px;
+}
+.http .modal-header{
+    border:none;
+
+}
+.http.modal-warning  .modal-header,.modal-body{
+    color: #f86b6b;
+}
+.http .btn{
+    cursor:pointer;
+    color: #f6f6f6;
+}
+
+span.error{
+    display: block;
+    position: absolute;
+    margin-top: -45px;
+    margin-left: 5px;
+    z-index: 10;
+    background: #FFF;
+    height: 25px;
+    color: #ce1818;
+    width: 40%;
+}

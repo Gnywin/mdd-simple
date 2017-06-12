@@ -2,4 +2,9 @@
 target
 mdd-core
 mdd-dao
+*intercept
+*resolver
+*validator
+*http
 *.iml
+*.properties
