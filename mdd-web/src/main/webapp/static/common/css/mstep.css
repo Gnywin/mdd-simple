@@ -1,0 +1,78 @@
+.step-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: 50px auto;
+    width: 80%;
+}
+.step-container li {
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 33%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #ccc;
+    color: #ffffff;
+}
+.step-container li.step-past {
+    background-color: #707677;
+    width: 34%;
+}
+.step-container li.step-current {
+    background-color: #1d2021;
+}
+
+.arrow {
+    position: absolute;
+    right: -7.5px;
+    height: 30px;
+    background-color: #ffffff;
+    z-index: 2;
+}
+.arrow span {
+    display: inline-block;
+    border-left: 15px solid transparent;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+.arrow-next {
+    margin-left: -15px;
+}
+.arrow-past .arrow-pre {
+    border-left: 15px solid #707677;
+}
+.arrow-current .arrow-pre {
+    border-left: 15px solid #1d2021;
+}
+
+.arrow-current .arrow-pre {
+    border-left: 15px solid #1d2021;
+}
+.arrow-current .arrow-next {
+    border-top: 15px solid #cccccc;
+    border-bottom: 15px solid #cccccc;
+}
+.arrow-past .arrow-next {
+    border-top: 15px solid #1d2021;
+    border-bottom: 15px solid #1d2021;
+}
+.arrow-next .arrow-next {
+    border-top: 15px solid #cccccc;
+    border-bottom: 15px solid #cccccc;
+}
+.arrow-next .arrow-pre {
+    border-left: 15px solid #cccccc;
+}
+
+.clearfix:after {
+    content:".";
+    display:block;
+    height:0;
+    visibility:hidden;
+    clear:both;
+}

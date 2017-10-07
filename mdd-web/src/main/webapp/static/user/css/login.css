@@ -1,0 +1,47 @@
+.container{
+    width: 800px;
+    height: 1000px;
+    margin: -30px auto;
+}
+.container .big-logo{
+    background: url("../../img/hafl-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:300px,146px;
+    z-index: 2000;
+    width: 300px;
+    height: 146px;
+    margin: -60px auto;
+    display: block;
+}
+.container .login-title{
+    display: block;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.container .login{
+    width: 100%;
+    height: 340px;
+    border: 5px solid;
+    margin-top: -38px;
+    border-radius: 11px;
+}
+.container .login form{
+    margin:50px auto;
+    width: 300px;
+}
+.container .login  #loginBtn{
+    width: 100%;
+}
+span.error {
+    width: 31%;
+}
+#verify {
+    display: none;
+}
+#forget {
+    float: right;
+    color: #0275d8;
+}

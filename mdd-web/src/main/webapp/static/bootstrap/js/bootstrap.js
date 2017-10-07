@@ -1788,7 +1788,7 @@ var Modal = function ($) {
       }
 
       if (this._isTransitioning) {
-        throw new Error('Modal is transitioning');
+        this._isTransitioning =false;
       }
 
       var transition = Util.supportsTransitionEnd() && $(this._element).hasClass(ClassName.FADE);

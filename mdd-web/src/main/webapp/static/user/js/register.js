@@ -191,6 +191,8 @@ function register() {
         url: "user/register",
         data: data,
         success: function (res) {
+            localStorage.setItem("token",JSON.stringify(res));
+            token = res.data;
             showYea({
                 title: "注册成功",
                 msg: "喵呜，恭喜小主、贺喜小主",

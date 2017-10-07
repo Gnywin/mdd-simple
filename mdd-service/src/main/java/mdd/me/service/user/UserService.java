@@ -35,4 +35,24 @@ public interface UserService {
      */
     User getUserByEmail(String email) throws MddException;
 
+    /**
+     * 获取返回url
+     * @return
+     */
+    String getFindUrl(String accessToken);
+
+    /**
+     * checkFindKey
+     * @param accessToken
+     * @return
+     */
+    int checkKey(String accessToken,String key);
+
+    /**
+     * 修改用户
+     * @param user
+     * @return
+     */
+    int updateUser(User user);
+
 }

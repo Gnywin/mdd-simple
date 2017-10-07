@@ -13,7 +13,7 @@
             <img class="logo" src="${host}/static/img/mdd-logo.png"> </img>
             <span class="title">猫大东的榕树下</span>
         </a>
-        <a class="login" href="${host}/user/login">登入</a>
+        <a class="login" href="${host}/user/login">登录</a>
     </nav>
 </header>
 <div class="container">

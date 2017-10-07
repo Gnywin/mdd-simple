@@ -30,7 +30,13 @@ nav .logo{
 }
 nav .login{
     float: right;
+    display: none;
 }
 nav .register{
     float: right;
+    display: none;
+}
+nav .logout{
+    float: right;
+    display: none;
 }

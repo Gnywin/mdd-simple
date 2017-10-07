@@ -31,7 +31,7 @@
       <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="mdd.me.domain"/>
-        <property name="mapperLocations" value="classpath:mybatis/*/*.xml"/>
+        <property name="mapperLocations" value="classpath:mdd/me/dao/*/*.xml"/>
         <property name="configLocation" value="classpath:mybatis/mybatis-common.xml"/>
     </bean>
 

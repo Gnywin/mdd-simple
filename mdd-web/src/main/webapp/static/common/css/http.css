@@ -24,3 +24,8 @@ span.error{
     color: #ce1818;
     width: 40%;
 }
+
+#code-error {
+    margin-left: 115px;
+    width: 12%;
+}

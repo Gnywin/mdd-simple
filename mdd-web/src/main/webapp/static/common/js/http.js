@@ -7,11 +7,20 @@ if (typeof jQuery === 'undefined') {
 
 var fp = new Fingerprint();
 
-var token =JSON.parse(localStorage.getItem("token"));
+var token = JSON.parse(localStorage.getItem("token"));
 
 $(document).ready(function () {
-    if (!token) {
+    if (!token) {//判断是否存在token
         getToken();
+        $(".login").show();
+        $(".register").show();
+    }else{
+        if(token.type != 0){ //判断token类型
+            $(".logout").show();
+        }else{
+            $(".login").show();
+            $(".register").show();
+        }
     }
 });
 
@@ -44,10 +53,9 @@ function getToken(){
 
 var Http = function (settings) {
     function callback(obj) {
-        debugger
         if(!(obj instanceof Object)){
             try {
-                obj = eval(obj);
+                obj =JSON.parse(obj);
             } catch (e) {
                 obj = obj;
             }
@@ -85,7 +93,7 @@ var Http = function (settings) {
         data: settings.data,
         async:settings.async == undefined ? true : false,
         traditional: settings.traditional || true,
-        timeout: settings.timeout || 5000,
+        timeout: settings.timeout || 0,
         beforeSend: function (request) {
             request.setRequestHeader("requestType", "ajax");
             if(token){
@@ -122,7 +130,15 @@ var Http = function (settings) {
             }
             showError(result);
         },
-        complete: settings.complete
+        complete:function(xhr,data){
+            var tokenJson = xhr.getResponseHeader("token");
+            if(tokenJson){
+                token =  JSON.parse(tokenJson);
+            }
+            if(settings.complete){
+                settings.complete(xhr,data);
+            }
+        }
     });
 };
 
